@@ -1,5 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 
 <html>
 <head>
@@ -12,8 +13,7 @@
 	 </style>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	 </head> 
-
-<body ng-app="">
+<body>
  <ul> 
 		 <li>
 		 <a href="dit1.html">date</a>
@@ -30,9 +30,28 @@
 
 
 
-  <span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
-  <span>{{1288323623006 | date:'MM-dd-yyyy HH:mm:ss Z'}}</span>
-  <br>
- </body>
+<div ng-app="myApp" ng-controller="myCtrl">
 
+<h1>{{hex}}</h1>
+
+</div>
+<script>
+var s=[1,2,41,2,4,55,3]
+var app = angular.module('myApp', []);
+
+
+
+app.service('he', function() {
+    this.myFunc = function (x) {
+	return x.reduce(function(pv, cv) { return pv + cv; }, 0);
+    }
+});
+
+
+app.controller('myCtrl', function($scope, he) {
+  $scope.hex = he.myFunc(s);
+});
+</script>
+
+</body>
 </html>

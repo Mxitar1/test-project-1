@@ -1,7 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-<html>
 <head>
 		<title>Menu</title> 
 		 <style type="text/css">
@@ -13,7 +12,10 @@
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	 </head> 
 
-<body ng-app="">
+
+
+
+<body>
  <ul> 
 		 <li>
 		 <a href="dit1.html">date</a>
@@ -28,11 +30,19 @@
     </ul>
 
 
+<div ng-app="myApp" ng-controller="costCtrl">
 
+<p>Price = {{ price | currency : "€"}}<br>
+	Price = {{ price | currency : "$"}}<br>
+    Price = {{ price | currency : "RUR"}}<br></p>
 
-  <span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
-  <span>{{1288323623006 | date:'MM-dd-yyyy HH:mm:ss Z'}}</span>
-  <br>
- </body>
+</div>
 
+<script>
+var app = angular.module('myApp', []);
+app.controller('costCtrl', function($scope) {
+    $scope.price =80
+});
+</script>
+</body>
 </html>
